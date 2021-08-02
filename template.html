@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Resume Generator</title>
+		<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style type="text/css">
+			html {
+				-webkit-print-color-adjust: exact;
+			}
+			* {
+			font-family: sans-serif;
+			}
+			.bold {
+				font-weight: bold !important;
+			}
+			.color-pink {
+				color: rgb(208,0,111) !important;
+			}
+			.pink-box {
+				background-color: rgb(208,0,111) !important;
+				color: white !important;
+				border-radius: 5px;
+				padding: 5px 15px;
+				width: fit-content;
+				display: inline-block;
+    			margin: 5px;
+			} 
+			body{
+				width: 100%;
+				margin: 0;
+				padding: 0px;
+				font-size: 16px;
+				line-height: 24px;
+				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+				color: rgb(33,33,33);
+			}
+			.resume-header{
+				padding: 20px;
+				padding-left: 200px;
+				box-sizing: border-box;
+				display: block;
+				position: relative;
+				border-bottom: 0.5px solid grey;
+				font-size: 20px;
+			}
+			.resume-header .logo{
+				position: absolute;
+				top: 40px;
+				left: 15px;
+				width: 150px;
+			}
+			.resume-footer{
+				padding: 15px;
+				box-sizing: border-box;
+				display: block;
+				position: relative;
+			}
+			.resume-body{
+				width: 100%;
+				display: grid;
+				position: relative;
+				padding: 15px;
+				box-sizing: border-box;
+				vertical-align: top;
+				grid-template-columns: 30% 70%;
+				font-size: 22px
+			}
+			.info-container {
+				border-right: 0.5px solid grey;
+			}
+			.project-container {
+			margin-left: 20px;
+			}
+			.info-container {
+			padding: 10px;	
+			}
+			.links {
+			font-style: italic;
+			}
+			.fa {
+				color: rgb(208,0,111) !important;
+			}
+			
+		</style>
+		<meta charset="utf-8">
+	</head>
+<body>
+	<div class="resume-header" style="display:flex;padding:30px">		
+		<div class="title" style="width:-webkit-fill-available">
+			<h1 class="bold color-pink">{{name}}</h1>
+			<h2>{{position}}</h2>
+		</div>
+		<div class="links" style="display: flex;flex-direction: column;place-items:flex-end;width: -webkit-fill-available">
+			<div>{{mobile}} <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAABgAAAAYADwa0LPAAAAB3RJTUUH5QcfEzsjsLI4KwAAA5pJREFUSMetlG1Mk1cUx3/3qRgwCwMTHO7TTNwURVtXpkx0LmVziRksM6KysLBkUFEKD4MvdUskmMiWuIbQMrJ00ihdHakky6ZMJW0zPsw5RuRpFxgZcZhMt8jIeKmpFlzvPmi7BNPQvZxPT879n5PfPef/XMF/DO0FUGsHBtgCHItEMAFVHk+aG7K+9Ho39kKLmJ9PVq/EPyYkVMr09OFRUE9UVwebwOJcs2YpAOUasNFm4wlg4cYNUQnyTEfHgglmakIh7SVoGC4qStpgaAjM5hUrtP2g9vh8mgaqKqX2NdTfvX072AT1J/PzU51IKASHD2dnB5tArXQ6tQugpkej2iSo2oEDj1xgWRVkdJ86xbvAt8XFiZMsENZVq2QJYPH7h3dA3VcbNixuEGwCtc/j0b4AtaSiYmwMpqbm5vQ2aD9jNnMRiFqtDAKF3d3BEXjntZ07/17Bx8Dm0tKkV3oIIoygGG22eHpkHzTL5cvlWZDhSIR8INfhWOeFJ71+/8g+OOLNzTV8BO2yrY0WkL92dVEDMb/LFV+5IooBx+xscpcBDVKKZcArvb3xdNxcht/AfrC6WqmF2OubNsmTIK9lZNwH0sp6erxeKCvT6aJ/gLxqtcoi4LmVK2ePweNj5eWKHAUuBQJJAT4F+Y3VqrdBu9bVlUy2+RI49ty8yUXQRffuxQdy2mBY9x2s3lpWtu06OPbMzcn3gYDbzWoQ2ysqFPpAednhSNZY1IByPBxO1YSGI9C2/dat2DSI7NOn5e8gOvPyEoJGkAe9XnEd5FQoJBKTnoOGnMuX+RnkG7t3JwrGgfrpaXEV/vQbjXobdJgnJlIFWioS74B0QcxlsXAF2HHnTkLxNGDPzmYQdI39/XFz/e8AWxrAXjI+Ll8EfmpsXCyUDuDttWvv6yCtMxD44VmwDK1fv1inXQH1x0OHgkZQ3+vvT/b7xkMkO9A+g4Ztdjt5IAvr6h4RdADucJgBEG8dPSpKgc8zM+WbIEtbWxO6GZAfTE7iAt0zJpOhG9p+GRlZEkBKaJaKEnoVpi/Y7fIECF9t7b+e9UMQcR5i7sLCuJeUZHohoEXEYvo+sJdYLGIryHB9PceB5nv3/jFA1oMHDUDXaTLF00qq9fp5sLscDh4DRV9QINwgm3y+lAFagef9/swPYWbY41lyBanGA5Pt2iU8oHxfVcUoUF5UxAQQzMkRFuCpc+cWBuHuJxZLQQE4nZFIvP4vhRlrP2lPPVIAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjEtMDctMzFUMTk6NTk6MzUrMDA6MDDnFwc+AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIxLTA3LTMxVDE5OjU5OjM1KzAwOjAwlkq/ggAAAABJRU5ErkJggg=="></div>
+			<div>{{email}}
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAABgAAAAYADwa0LPAAAAB3RJTUUH5QgBCAEfmJFhOQAAAaRJREFUSMfllD1Im2EUhZ/7+oOKBLcgCkqpOOhS3YSANEEcBAUR3RwylBDli2DnToUvoMEODomgriKKIi6im3WUVHQIFoOlEAIOZmoTSK6LXwaDxKAGwbO98J7z3HOHC+9dEr8Fy2XbHAO5uTnagS/19a9G/AtEczls0J+Li/LrM1h2JqMRIOVyVa35IOi3TMbwCSRq26wDV4XCq5Mdjh9MfzhsJAr69eJCBbTJ4+EE+J9IvDg4BQSTSUZAsz6fwzWFYyCxu2uSIO5Q6N93MNNeL53AWjgs88BoPl8xMA6EVGUCZDMWIwnmxuORAJjzqSmHK/E4WJZq0XgI1KTTNIH2BAJ6CRyk09IF0rK6ygDQ0N1dtmkd6Izfr+fAbGOjDIHMx2LkgOG2Nue7KQnwAXm3mwGQs+3tspsp01QGQQ739x+CHZVu4BGJBVylUjoJOhYMFn5D/uj0tNjkI9R4+/pkA2RneVl/AB9aW8vmPnWAEuM4sHR97bx1Cwh1dFSaU1up4bnAhzLFy1Rt3XMNf4BEJFK1QfaA5mxWe4GVhYWqF39zugNxsbhjB4v1RAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMS0wOC0wMVQwODowMTozMCswMDowMIczMZYAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjEtMDgtMDFUMDg6MDE6MzArMDA6MDD2bokqAAAAAElFTkSuQmCC">
+			</div>
+			<div>{{city}} 
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAABgAAAAYADwa0LPAAAAB3RJTUUH5QgBByQ014IPowAAAqlJREFUSMellFtIVGEUhb9zMGdUEMfXMs0LpsZo0aRZL72FGQpdSCEVrLzfEKF8MaIQi1BLwehFffACCgZmEIQgXtKEZoa0VFRS6UnHAROn0vP30hlhDocjtl72z9lrr7XP+uGXMMDEUagaDwgIyATlQmGhNAA8zsoS/cCb+HiVJ10DMmZnlTWgtqsrBHDT1nZCgg7J49HTl/QaTidUuiMjxRMQmYOD4gGQGBdntLBXOAO4OTvLddibSU9PfA4t95aXDReYjIKyoeBg8yrI36anxRTwPSbmoMYajAOeuTmzP5iGbbaTd+Dp/NaW2pZ9+eZtkPtrav7bWEUqYI6N3cmHX3PV1b5tzQJcAsJycnQF14HY0VHlJ8ifbDa1Ege0jo3pjcnRAHl5ulfgdEJRkcWiKODv73LpCe3+AVEXHn7WBi9CV1bU758FVIiICMkBVGrvWoVIBJosltMSNEtutzcBz2WQ82RZbxA7UCnE3i0QH91u3/bvaFDeuVwqT0/G/wbIE/s+3sO5H9CavLHBAlC+uamZTAKaJMl8H+Sd+vphAXXCz0+tpnyQrQ0NKk8z3wM4Xa6EPmhM3U9Y+8cLgKm3VzdCGzBSXBxqgc3N9XW1kgY8KyzUTfADiH6trmbTL8egbCgqarcP5IcOB2bgfFAQh4UHmNjelgNBem+1Wq3QFLK0pJvAqTV4mba4yFsQHWVlhzZWE0sGJktLfY11E/CFow0qRHu7SAEqc3MP7JwHvOruTrJDsyc7W48mGwotwJHbJSXep9UICoia+XlzKZiOFxQY0Q0TUGHPgaqwhARegzIwNcVXoDMw0Et4BNR5PEo37EkpKWdM0GJxOIx0jRP4h6ROaFydmZFqgfzycg2hG6S7JSUHNf5v2K9AxdWODvsIVFzs6Tmszl+JrfaAwNC3EgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMS0wOC0wMVQwNzozNjo1MiswMDowMIqNgXUAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjEtMDgtMDFUMDc6MzY6NTIrMDA6MDD70DnJAAAAAElFTkSuQmCC">
+			</div>
+			<div>{{linkedIn}} 
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAABgAAAAYADwa0LPAAAAB3RJTUUH5QgBBxUnlWFJzwAAAp5JREFUSMe9lU1IlFEUhp/zzeeAg40jIlZDVFCapDmZC39atDAhF4IKY0RFtCh0oabtiiwYrIWlREa/BhmaDiqIaQvDgn5cuJix1MpFhulUUpiNaejMbaNCI9HPaM/ynnPP+95zLvcK87gGoLQiJoZz4FtbUSFtoLIzMtRDkDPh4fwrq4BvExPkAXWdnXM3QK6XlSUnQ/UBj0cWhfvBl9/Tw2bgYkTEPwv+jk1A7Pi4vgX8G1JTxXUHimabm4kHOZ6bu2LCAUgqyN2mJk1qQc5nZCzJeApqW26u3wu+N1Yr64Dx4eHlMqBegMrOzNTUBcBjNgcmGHaDvqm3N2knXGobG5Ms4OjY2LK14Ctgslj0X8X9p8DX/fix6zsU6yMjahBoSUtbNgPz/NIAr0FdP3lS9YMUzszIFeCEwcBzoNJkUjXAjMMhh4FrOTkcAV69fSs3QaUNDKhQoC0ujgcgFBczCNw2mf7YgL4R5qpaW7cmwWW71+uKhqJ9djtDoN0ym7eboXrc6XSXwfH9HR2JhVC5fmrqpyI7wOWAosGhIfJAqK0N1NGCbaG/EmbroqJc+VD8yeNxW6Doc3v7QtxwEPSPXV1/P4I/RBJAzqancwfUh9Wr1R6Qkqys/nYoV0aj4RFMx05M+JLBt2cFDKgc8E/pugACYAOqRabjwTOt66HnQHcoRTKEPFm6P+gRBIsmpcCaycnAgM8LhjCLpa8PCgoiIkgAqTEaeQeqOyRkYV1LBM259HZrM2B8b7Es1AmMyy5Q5V++iDsUSqIbG9UzUHvt9v929EPA1YYGcV2GY0+tVlrA73W7qQTuRUaumPD8Z+R3ge++zabZCqEqbXTU7wUtLCVFTgPK6Vz8RoNlvo7UAZn19XMvQVYlJi488T8AcTzwnmbZL5kAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjEtMDgtMDFUMDc6MjE6MzkrMDA6MDBttxixAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIxLTA4LTAxVDA3OjIxOjM5KzAwOjAwHOqgDQAAAABJRU5ErkJggg==">
+			</div>
+		</div>
+	</div>
+	<br/>
+	<div class="resume-body">
+		<div class="info-container">
+			<div class="education-container">
+				<h3 class="bold color-pink">Education</h3>
+				<br/>
+				<ul>
+					{{#each education}}
+					<li>{{this}}</li>
+					{{/each}}
+				</ul>
+			</div>
+			<br/>
+			<hr style="border-color: grey">
+			
+			<div class="skills-container">
+				<h3 class="bold color-pink">SKILLS</h3>
+				<br/>
+				<h4 class="bold">Proficient in:</h4>
+				<div>
+					{{#each proficientSkills}}
+					<span class="pink-box">{{this}}</span>
+					{{/each}}
+				</div>
+				
+				<h4 class="bold">Have Working Knowledge in:</h4>
+				<div>
+					{{#each skills}}
+					<span class="pink-box">{{this}}</span>
+					{{/each}}
+				</div>
+
+			</div>
+			<br/>
+			<hr style="border-color: grey">
+			
+			<div class="awards-container">
+				<h3 class="bold color-pink">Awards and Recognition</h3>
+				<br/>
+				<ul>
+					{{#each awards}}
+					<li>{{this}}</li>
+					{{/each}}
+
+				</ul>
+			</div>
+		</div>
+		
+		<div class="project-container">
+			<div class="profile">
+			  <h3 class="bold color-pink">Career Summary</h4>
+			  <br/>
+			  <ul>
+				{{#each careerSummary}}
+					<li>{{this}}</li>
+				{{/each}}
+			  </ul>
+			</div>
+			<br/>
+			<div class="project-summary-container">
+				<h3 class="bold color-pink">Project Summary</h4>
+				<br/>
+				{{#each projectSummary}}
+				<div class="experience-container">
+					<h4 class="title bold">{{designation}}</h4>
+					<div class="bold"><span>{{company}}</span> | <span>{{period}}</span></div>
+					<ul>
+						{{#each summary}}
+						<li>{{this}}</li>
+						{{/each}}
+					</ul>
+				</div>
+				<br/>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+	
+	<div class="resume-footer">
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+{
+	"name": "Kumar Arun",
+	"docname": "Resume",
+	"age": 28,
+	"birthdate": "12/07/1990",
+    "email": "xyz@gmail.com",
+    "mobile": "9876543210",
+    "city": "Bengaluru",
+    "linkedIn": "https://www.linkedin.com/xyz ",
+	"position": "Frontend Developer",
+    "education": [
+        "Bachelor of Engineering in ECE (Electronics & Communication), Anna University",
+        "Passed HSC with 93%.",
+        "Passed SSLC with 96%."
+    ],
+    "proficientSkills": [
+        "Lorem",
+        "Ipsum ",
+        "simply",
+        "dummy",
+        "text"
+    ],
+    "skills": [
+        "Lorem",
+        "Ipsum ",
+        "simply",
+        "dummy",
+        "text"
+    ],
+    "careerSummary": [
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "Lorem Ipsum has been the industry standard dummy text ever since the 1500s",
+        "when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Aliquam purus sit amet luctus venenatis. Ac auctor augue mauris augue neque gravida in.",
+        "Lorem dolor sed viverra ipsum nunc aliquet. Viverra maecenas accumsan lacus vel facilisis volutpat est."
+    ],
+    "projectSummary": [
+        {
+            "designation": "Senior Developer",
+            "company": "XYZ3",
+            "period": "2018 - present",
+            "summary": [
+                "when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "Aliquam purus sit amet luctus venenatis. Ac auctor augue mauris augue neque gravida in.",
+                "Lorem dolor sed viverra ipsum nunc aliquet. Viverra maecenas accumsan lacus vel facilisis volutpat est."
+            ]
+        },
+        {
+            "designation": "Associate Engineer",
+            "company": "XYZ2",
+            "period": "2017 - 2018",
+            "summary": [
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "Aliquam purus sit amet luctus venenatis. Ac auctor augue mauris augue neque gravida in.",
+                "Lorem dolor sed viverra ipsum nunc aliquet. Viverra maecenas accumsan lacus vel facilisis volutpat est."
+            ]
+        },
+        {
+            "designation": "Project Engineer",
+            "company": "XYZ1",
+            "period": " 2016 - 2017",
+            "summary": [
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "Aliquam purus sit amet luctus venenatis. Ac auctor augue mauris augue neque gravida in.",
+                "Lorem dolor sed viverra ipsum nunc aliquet. Viverra maecenas accumsan lacus vel facilisis volutpat est."
+            ]
+        }
+    ],
+    "awards": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Aliquam purus sit amet luctus venenatis. Ac auctor augue mauris augue neque gravida in."
+    ]
+}
